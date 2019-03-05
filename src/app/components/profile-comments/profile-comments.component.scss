@@ -1,0 +1,151 @@
+@import 'src/styles.scss';
+
+@mixin transform($property, $duration, $timingFunction) {
+    transition-property: $property;
+    transition-duration: $duration;
+    transition-timing-function: $timingFunction;
+}
+
+#profileComments.wrapper {
+    margin-top:20px;
+}
+
+#profileComments .hide-comments-btn {
+    display:block;
+    width:100%;
+    padding: 25px 20px;
+    border:0;
+    text-align:center;
+    font-size:14px;
+    text-decoration: underline;
+    background: transparent;
+    color: $yellow-orange;
+    outline:none;
+
+    &:hover {
+        color:$yellow-orange;
+    }
+
+}
+
+#profileComments .comments {
+    width: 100%;
+    max-height: 0;
+    overflow-y: scroll;
+    @include transform("all", .5s, cubic-bezier(0, 1, 0.5, 1));
+    
+    &.show {
+        max-height:320px;
+    }
+
+    .comment {
+        display: flex;
+        align-items: flex-start;
+        padding-top:20px;
+        border-top:1px solid $gallery;
+        margin: 10px 0;
+        color: $tundora;
+
+        &:first-child {
+            border-top:0;
+        }
+
+        .avatar-column {
+            width: 71px;
+            overflow: hidden;
+
+            .avatar{
+                width:40px;
+                height:40px;
+                margin: 0 11px 0 20px;
+                border-radius:20px;
+                background-color:$profile-avatar-bg-color;
+                background-size: contain;
+                overflow: hidden;
+
+                img{
+                    max-width:40px;
+                    height:auto;
+                }
+            }
+        }
+
+        .comment-column {
+            width: 80%;
+            overflow: hidden;
+
+            .details-row {
+                width: 100%;
+                display: flex;
+
+                .author {
+                    width: 80%;
+                    text-align: left;
+                    font-size: 14px;
+                    color: $midnight-blue;
+                }
+
+                .date {
+                    width: 20%;
+                    padding-right:20px;
+                    text-align: right;
+                    font-size: 14px;
+                    color: $midnight-blue;
+                    opacity:0.5;
+                }
+            }
+
+            .text {
+                width: 100%;
+                box-sizing: border-box;
+                padding:10px 20px 10px 0;
+                color:$tundora;
+                text-align: left;
+                font-size: 14px;
+                line-height: 21px;
+            }
+        }
+    }
+}
+
+
+#profileComments .add-comment-row {
+    width:100%;
+    margin-top:10px;
+    border-top: 1px solid $gallery;
+
+    .add-comment-input {
+        padding: 0 0 10px;
+        margin: 14px 30px 0;
+        width: 222px;
+        border:0;
+        border-bottom:2px solid $geyser;
+        font-family: $font-stack;
+        font-size:18px;
+        color:$wild-blue-yonder;
+        outline: none;
+    }
+
+}
+
+
+
+#profileComments .add-comment-row-error {
+    font-size: 12px;
+    color:$well-read;
+}
+
+@media only screen and (min-width: 500px) {
+
+    #profileComments .comment .comment-column {
+        width:85%;
+    }
+
+    #profileComments .hide-comments-btn {
+        text-align: left;
+    }
+
+    #profileComments .add-comment-row .add-comment-input {
+        width:413px;
+    }
+}

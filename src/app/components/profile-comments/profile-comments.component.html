@@ -1,0 +1,47 @@
+<div class='wrapper' id='profileComments'>   
+
+    <div *ngIf="!comments.length" class="spinner">
+        <img src="/assets/spinner.gif" />
+    </div>
+
+    <button *ngIf="comments.length"
+        type='button' 
+        class='hide-comments-btn' 
+        (click)="showHideComments()"
+        [textContent]="showComments ? 'Hide comments (' + comments.length + ')' : 'Show comments (' + comments.length + ')' ">
+    </button>
+    <div class="comments" [class.show]="showComments">
+            <div *ngFor="let comment of comments | sortComments" class="comment">
+                <div class="avatar-column">
+                    <div class="avatar">
+                        <img [src]="'./assets' + comment.authorAvatarUrl"/>
+                    </div>
+                </div>
+                <div class="comment-column">
+                    <div class="details-row">
+                        <div class="author">{{comment.firstName}} {{comment.lastName}}</div>
+                        <div class="date">{{dateConverter(comment.datePosed)}}</div>
+                    </div>
+                    <div class="text">{{comment.comment}} </div>
+                </div>
+            </div>
+
+        <div style="float:left; clear:both" #divToScroll></div>
+    </div>
+    <div *ngIf="!addingComment" class='add-comment-row'>
+        <input *ngIf="comments.length"
+        [(ngModel)]="comment.value"
+        class='add-comment-input'
+        type='text'
+        placeholder='Add a comment...'
+        (keyup)='addComment($event)'
+        autoComplete='off'
+        />
+    </div>
+
+    <div *ngIf="addingComment" class="spinner">
+        <img src="/assets/spinner.gif" />
+    </div>
+
+    <div *ngIf="error" class='add-comment-row-error'>{{ error }}</div>
+</div>   

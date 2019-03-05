@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+
+$font-stack: 'Montserrat', sans-serif;
+$white: #ffffff;
+$yellow-orange: #FFA640;
+$midnight-blue: #002C71;
+$alto: #dddddd;
+$silver-chalice: #aaa;
+$tundora: #444444;
+$well-read: #bb3232;
+$wild-blue-yonder: #8298B9;
+$athens-grey: #efeff0;
+$nepal:#869bbd;
+$dusty-grey: #979797;
+$geyser: #DBE0E8;
+$gallery: #ebebeb;
+
+$dusty-grey-alpha10: rgba(151,151,151, 0.1);
+
+
+$profile-avatar-bg-color: $athens-grey;
+$profile-full-name-color: $midnight-blue;
+$profile-location-color: $wild-blue-yonder;
+
+$profile-stat-label-color: $nepal;
+$profile-stat-number-color: $yellow-orange;
+$profile-stat-border-color: $dusty-grey-alpha10;
+
+$orange-button-bg-color: $yellow-orange;
+$orange-button-hover-bg-color: rgb(223, 126, 15);
+
+$modal-bg: rgba(0,0,0,0.5);
+$modal-inside-bg: $white;
+$modal-color: $tundora;
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-stack;
+  background: $white;
+}
+
+button, button:hover {
+  cursor: pointer;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+::placeholder {
+  color:$wild-blue-yonder;
+  opacity:1;
+}
+
+.wrapper {
+  width: 283px;
+  height:auto;
+  position:relative;
+  background:#fff;
+  margin:60px auto 0;
+  padding: 0 0 18px 0;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 5px #ccc;
+}
+
+@media only screen and (min-width: 500px) {
+  .wrapper {
+    width: 466px;
+  }
+}

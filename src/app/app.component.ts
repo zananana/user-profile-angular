@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'user-profile-angular';
+  title = 'AAA user-profile-angular';
+
+  hideComments = false;
+
+  public handleCommentsStateChanged(showComments: boolean): void {
+    this.hideComments = !showComments;
+  }
 }

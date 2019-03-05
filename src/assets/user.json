@@ -1,0 +1,12 @@
+{
+    "id": 1,
+    "firstName": "Harvey",
+    "lastName": "Specter",
+    "likesNum": 121,
+    "following": 4433,
+    "followers": 723,
+    "city": "New York",
+    "country": "USA",
+    "avatarUrl": "/avatar.png",
+    "profileUser": "http://website.com/profile/HarveySpecter"
+}

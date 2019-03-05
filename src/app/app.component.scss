@@ -1,0 +1,38 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.profile-wrapper {
+    background:#fff;
+    width:320px;
+    height: 704px;
+    margin: 30px auto 0 auto;
+    box-shadow: 0 0 5px #ccc;
+    transition-property: all;
+	transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    
+    &.wrapped{
+        height:384px;
+    }
+}
+
+.blue-background {
+    background: #002C71;
+    height:95px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+@media only screen and (min-width: 500px) {
+
+    .profile-wrapper {
+        width:500px;
+        height:654px;
+
+        &.wrapped{
+            height:334px;
+        }
+    }
+}

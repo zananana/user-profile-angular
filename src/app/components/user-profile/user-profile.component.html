@@ -1,0 +1,67 @@
+<div class='wrapper' id='userProfile'>   
+    <div class="spinner" *ngIf="!user.firstName.length || !user.lastName.length">
+        <img src="/assets/spinner.gif" />
+    </div>
+
+<div *ngIf="user.firstName.length || user.lastName.length" >
+
+    <button type="button" class="show-btn" (click)="isShown = !isShown">
+        <fa-icon style="color:#FFA640" size="1x" [icon]="isShown ? faShareSquare : fasShareSquare"></fa-icon>
+        </button> 
+        <div class="modal" [class.show]="isShown">
+            <div class="modal-inside">
+                <button class="close-btn" type="button" (click)="isShown = !isShown">
+                <fa-icon style="color:#d3d3d3" size="2x" [icon]="isShown ? faWindowClose : fasWindowClose"></fa-icon>
+                </button>
+                <p>{{ user.profileUser }}</p>
+            </div>    
+        </div>
+
+
+    <div class='avatar' [style.background-image]="'url(./assets' + user.avatarUrl + ')'" >&nbsp;</div>
+    <div class='name'>
+        {{user.firstName}} {{user.lastName}}
+        <button 
+            class='like-btn' 
+            type='button' 
+            (click)="isLiked = !isLiked; toggleLike()"
+            >
+            <fa-icon style="color:#d3d3d3" size="2x" [icon]="isLiked ? faHeart : fasHeart"></fa-icon>
+        </button>
+    </div>
+    <div class='location'>
+        {{user.city}}, {{user.country}}
+    </div>
+
+    <div class='stats'>
+      <div class='stat-block'>
+        <div class='data'>
+            {{ user.likesNum }}
+        </div>
+        <span class='desc'>
+            Likes
+        </span>
+      </div> 
+      <div class='stat-block'>
+        <div class='data'>
+            {{ user.followers }}
+        </div>
+        <span class='desc'>
+            Followers
+        </span>
+      </div>
+      <div class='stat-block'>
+        <div class='data'>
+            {{ user.following }}
+        </div>
+        <span class='desc'>
+            Following
+        </span>
+      </div>
+    </div>
+
+
+    <button class="follow-btn" [class.followed]="isFollowed" type='button' (click)="isFollowed = !isFollowed; toggleFollow()">
+        Follow</button>
+</div>
+</div>
